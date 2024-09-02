@@ -14,3 +14,27 @@ This project demonstrates a complete data pipeline that collects, processes, and
 
 ## Project Structure
 
+data-pipeline-weather-covid-integration/
+│
+├── data/
+│   ├── covid_data.json
+│   ├── weather_data.json
+│   ├── covid_data.csv
+│   ├── weather_data.csv
+│   ├── combined_data.parquet
+│
+├── scripts/
+│   ├── collect_data.py
+│   ├── kafka_producer.py
+│   ├── spark_batch_processing.py
+│   ├── spark_stream_processing.py
+│
+├── terraform/
+│   ├── main.tf
+│
+├── notebooks/
+│   ├── data_analysis.ipynb
+│
+├── README.md
+├── requirements.txt
+└── .gitignore
