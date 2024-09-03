@@ -1,0 +1,67 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+env.bak/
+env.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Data files
+data/*.json
+data/*.csv
+data/*.parquet
+
+# Logs and database files
+*.log
+*.sqlite3
+
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage/
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# VSCode settings
+.vscode/
+.history/
+.vscode-server/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Secrets (if any)
+.env
