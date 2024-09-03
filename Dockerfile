@@ -13,8 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
-# Define environment variable for OpenWeatherMap API key
-ENV WEATHER_API_KEY=your_openweathermap_api_key
-
 # Run the Python script when the container launches
 CMD ["python", "scripts/collect_data.py"]
