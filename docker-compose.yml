@@ -28,3 +28,38 @@ services:
     depends_on:
       - kafka
     command: python scripts/collect_data.py
+
+  spark:
+    image: bitnami/spark:3.3.0
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - "8080:8080"
+
+  spark-worker:
+    image: bitnami/spark:3.3.0
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+    depends_on:
+      - spark
+    ports:
+      - "8081:8081"
+
+  spark-submit:
+    image: bitnami/spark:3.3.0
+    depends_on:
+      - spark
+      - kafka
+    environment:
+      SPARK_MASTER_URL: spark://spark:7077
+      KAFKA_BROKER: kafka:9092
+    volumes:
+      - .:/app
+    command: bash -c "spark-submit --master spark://spark:7077 /app/scripts/spark_stream_processing.py"
